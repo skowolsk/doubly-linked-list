@@ -10,7 +10,7 @@ class LinkedList {
     append(data) {
         let list = new Node(data);
         if(this.length){
-            list.prev = this._tail;
+            list.prev = this.tail;
             this.tail= list;
             this.tail.next = list;
         }
@@ -23,15 +23,15 @@ class LinkedList {
     }
 
     head() {
-        if (this._head){
-            return this._head.data;
+        if (this.head){
+            return this.head.data;
         }
         return null;
     }
 
     tail() {
-        if (this._tail){
-            return this._tail.data;
+        if (this.tail){
+            return this.tail.data;
         }
         return null;
     }
