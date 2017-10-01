@@ -45,7 +45,27 @@ class LinkedList {
         }
     }
 
-    insertAt(index, data) {}
+    insertAt(index, data) {
+        let temp;
+        let newIndex = 0;
+        let list =new Node(data);
+
+        if(!temp) {
+            newIndex++;
+            temp = this.head;
+        }
+
+        while(newIndex <= index){
+            temp = temp.next;
+            temp.prev.next = list;
+            list.prev = temp.prev;
+            temp.prev = list;
+            list.next = temp;
+            newIndex++;
+        }
+
+        return this;
+    }
 
     isEmpty() {
         return !this.head;
@@ -73,7 +93,14 @@ class LinkedList {
         return this;
     }
 
-    reverse() {}
+    reverse() {
+        for(let i = 0; i < this.length; i++) {
+            let data = this.at(this.length-1);
+            this.insertAt(i,data);
+            this.deleteAt(this.length);
+        }
+        return this;
+    }
 
     indexOf(data) {
         let i = 0;
