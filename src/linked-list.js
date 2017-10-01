@@ -8,15 +8,14 @@ class LinkedList {
     }
 
     append(data) {
-        let list = new Node(data);
-        if(this.length){
-            list.prev = this.tail;
-            this.tail= list;
+        var list = new Node(data);
+        if (this.head) {
             this.tail.next = list;
-        }
-        else{
+            list.prev = this.tail;
             this.tail = list;
+        } else {
             this.head = list;
+            this.tail = list;
         }
         this.length++;
         return this;
@@ -72,7 +71,20 @@ class LinkedList {
         return this;
     }
 
-    deleteAt(index) {}
+    deleteAt(index) {
+        if (this.length === 1) {
+            return this;
+        }
+        if (index >= 0 && index < this.length) {
+            for (let i = 0; i < index; i++) {
+                this.head = this.head.next;
+            }
+        }
+        this.head.prev.next = this.head.next;
+        this.head.next.prev = this.head.prev;
+        this.length--;
+        return this;
+    }
 
     reverse() {
         for(let i = 0; i < this.length; i++) {
