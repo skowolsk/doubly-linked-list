@@ -8,7 +8,7 @@ class LinkedList {
     }
 
     append(data) {
-        var list = new Node(data);
+        let list = new Node(data);
         if (this.head) {
             this.tail.next = list;
             list.prev = this.tail;
