@@ -8,7 +8,7 @@ class LinkedList {
     }
 
     append(data) {
-        let list = new Node(data);
+        var list = new Node(data);
         if (this.head) {
             this.tail.next = list;
             list.prev = this.tail;
@@ -30,7 +30,7 @@ class LinkedList {
     }
 
     at(index) {
-        if (!(index < 0 && index > this.length && index === 0)) {
+        if (!(index < 0 || index > this.length || index === 0)) {
             for (let i = 0; i < index; i++) {
                 this.head = this.head.next;
             }
