@@ -87,12 +87,7 @@ class LinkedList {
     }
 
     reverse() {
-        for(let i = 0; i < this.length; i++) {
-            let data = this.at(this.length-1);
-            this.insertAt(i,data);
-            this.deleteAt(this.length);
-        }
-        return this;
+      
     }
 
     indexOf(data) {
