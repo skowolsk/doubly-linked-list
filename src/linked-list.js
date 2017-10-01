@@ -23,17 +23,11 @@ class LinkedList {
     }
 
     head() {
-        if (this.head){
-            return this.head.data;
-        }
-        return null;
+        return this.head.data;
     }
 
     tail() {
-        if (this.tail){
-            return this.tail.data;
-        }
-        return null;
+        return this.tail.data;
     }
 
     at(index) {
@@ -68,7 +62,7 @@ class LinkedList {
     }
 
     isEmpty() {
-        return !this.head;
+        return !this.length;
     }
 
     clear() {
@@ -78,20 +72,7 @@ class LinkedList {
         return this;
     }
 
-    deleteAt(index) {
-        if (this.length === 1) {
-            return this;
-        }
-        if (index >= 0 && index < this.length) {
-            for (let i = 0; i < index; i++) {
-                this.head = this.head.next;
-            }
-        }
-        this.head.prev.next = this.head.next;
-        this.head.next.prev = this.head.prev;
-        this.length--;
-        return this;
-    }
+    deleteAt(index) {}
 
     reverse() {
         for(let i = 0; i < this.length; i++) {
