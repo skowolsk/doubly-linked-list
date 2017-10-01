@@ -72,7 +72,18 @@ class LinkedList {
     }
 
     deleteAt(index) {
-        
+        if (this.length === 1) {
+            return this;
+        }
+        if (index >= 0 && index < this.length) {
+            for (let i = 0; i < index; i++) {
+                this.head = this.head.next;
+            }
+        }
+        this.head.prev.next = this.head.next;
+        this.head.next.prev = this.head.prev;
+        this.length--;
+        return this;
     }
 
     reverse() {
