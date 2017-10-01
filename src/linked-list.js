@@ -105,7 +105,7 @@ class LinkedList {
                 return i;
             }
         }
-        return null;
+        return -1;
     }
 }
 
