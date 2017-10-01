@@ -39,25 +39,24 @@ class LinkedList {
     }
 
     insertAt(index, data) {
-        let temp;
-        let newIndex = 0;
-        let list =new Node(data);
-
-        if(!temp) {
-            newIndex++;
-            temp = this.head;
-        }
-
-        while(newIndex <= index){
-            temp = temp.next;
-            temp.prev.next = list;
-            list.prev = temp.prev;
-            temp.prev = list;
-            list.next = temp;
-            newIndex++;
-        }
-
-        return this;
+        let list = new Node(data);
+            if (this.isEmpty()) {
+                this._head = list;
+                this._tail = list;
+            }
+            else if (index === this.length) {
+                this.append(data);
+            } else {
+                for (let i = 0; i < index-1; i++){
+                    this.head = this.head.next;
+                }
+                list.prev = this.head.prev;
+                list.next = this.head;
+                this.head.prev.next = list;
+                this.head.prev = list;
+            }
+            this.length++;
+            return this;
     }
 
     isEmpty() {
